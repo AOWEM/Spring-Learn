@@ -2,5 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        <!--1.导入spring的坐标spring-context，对应版本5.2.10.RELEASE-->
+
+        <!--2.配置Bean-->
 
 </beans>
