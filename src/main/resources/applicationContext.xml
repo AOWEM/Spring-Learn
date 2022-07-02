@@ -13,5 +13,13 @@
         <!--dao层-->
         <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl"/>
         <!--service-->
-        <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl" />
+        <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl" >
+                <!--7.配置service与dao的关系-->
+                <!--
+                     property标签配置当前bean的属性
+                     name属性表示配置那一个具体属性
+                     ref属性表示参照那一个bean
+                -->
+                <property name="bookDao" ref="bookDao" />
+        </bean>
 </beans>
