@@ -5,5 +5,13 @@
         <!--1.导入spring的坐标spring-context，对应版本5.2.10.RELEASE-->
 
         <!--2.配置Bean-->
-
+        <!--
+                bean标签表示配置benn
+                id属性表示给bean起名字
+                class属性表示给bean定义类型
+        -->
+        <!--dao层-->
+        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl"/>
+        <!--service-->
+        <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl" />
 </beans>
