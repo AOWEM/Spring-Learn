@@ -11,9 +11,14 @@
                 class属性表示给bean定义类型
         -->
         <!--dao层-->
-        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl"/>
+        <!--<bean id="bookDao"  class="com.yuanh.dao.impl.BookDaoImpl"/>-->
+        <!--name 取别名-->
+        <bean id="bookDao" name="dao"  class="com.yuanh.dao.impl.BookDaoImpl"/>
+
         <!--service-->
-        <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl" >
+        <!--name="service service2 bookEbi" 起别名-->
+       <!-- <bean id="bookService"  class="com.yuanh.service.impl.BookServiceImpl" >-->
+        <bean id="bookService" name="service service2 bookEbi" class="com.yuanh.service.impl.BookServiceImpl" >
                 <!--7.配置service与dao的关系-->
                 <!--
                      property标签配置当前bean的属性
@@ -21,5 +26,7 @@
                      ref属性表示参照那一个bean
                 -->
                 <property name="bookDao" ref="bookDao" />
+                <!--调用上别的别名 建议还是调用id的名字 -->
+                <!--<property name="bookDao" ref="dao" />-->
         </bean>
 </beans>
