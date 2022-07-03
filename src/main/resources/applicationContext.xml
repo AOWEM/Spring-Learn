@@ -47,5 +47,14 @@
 <!--        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" />-->
 
         <!--方式二：使用静态工厂实列化bean    factory-method必须吧方法名写上不然不知道调用那个方法  -->
-        <bean id="orderDao" class="com.yuanh.factory.OrderDaoFactory" factory-method="getOrderDao" />
+<!--        <bean id="orderDao" class="com.yuanh.factory.OrderDaoFactory" factory-method="getOrderDao" />-->
+
+        <!--方式三：使用实列工厂实例化bean-->
+        <!--1.创建userFactory的bean-->
+        <!--<bean id="userFactory" class="com.yuanh.factory.UserDaoFactory" />-->
+        <!--2.在创建bean-->
+        <!--<bean id="userDao" factory-method="getUserDao" factory-bean="userFactory"/>-->
+
+        <!--方法四：实列化工厂 使用FactoryBean 实列化bean-->
+        <bean id="userDao" class="com.yuanh.factory.UserDaoFactoryBean" />
 </beans>
