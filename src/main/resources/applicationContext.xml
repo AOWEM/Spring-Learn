@@ -20,22 +20,28 @@
                 singleton：单列默认
                 prototype: 非单列 创建的bean不一样
         -->
-        <bean id="bookDao" name="dao"  class="com.yuanh.dao.impl.BookDaoImpl" scope="prototype"/>
+        <!--<bean id="bookDao" name="dao"  class="com.yuanh.dao.impl.BookDaoImpl" scope="prototype"/>-->
 
 
 
         <!--service-->
         <!--name="service service2 bookEbi" 起别名-->
        <!-- <bean id="bookService"  class="com.yuanh.service.impl.BookServiceImpl" >-->
-        <bean id="bookService" name="service service2 bookEbi" class="com.yuanh.service.impl.BookServiceImpl" >
-                <!--7.配置service与dao的关系-->
-                <!--
+        <!--<bean id="bookService" name="service service2 bookEbi" class="com.yuanh.service.impl.BookServiceImpl" >
+                &lt;!&ndash;7.配置service与dao的关系&ndash;&gt;
+                &lt;!&ndash;
                      property标签配置当前bean的属性
                      name属性表示配置那一个具体属性
                      ref属性表示参照那一个bean
-                -->
+                &ndash;&gt;
                 <property name="bookDao" ref="bookDao" />
-                <!--调用上别的别名 建议还是调用id的名字 -->
-                <!--<property name="bookDao" ref="dao" />-->
-        </bean>
+                &lt;!&ndash;调用上别的别名 建议还是调用id的名字 &ndash;&gt;
+                &lt;!&ndash;<property name="bookDao" ref="dao" />&ndash;&gt;
+        </bean>-->
+
+
+
+
+        <!--bean的实列化-->
+        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" />
 </beans>
