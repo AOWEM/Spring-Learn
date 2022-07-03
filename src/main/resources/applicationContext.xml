@@ -56,5 +56,15 @@
         <!--<bean id="userDao" factory-method="getUserDao" factory-bean="userFactory"/>-->
 
         <!--方法四：实列化工厂 使用FactoryBean 实列化bean-->
-        <bean id="userDao" class="com.yuanh.factory.UserDaoFactoryBean" />
+      <!--  <bean id="userDao" class="com.yuanh.factory.UserDaoFactoryBean" />-->
+
+
+        <!--bean的生命周期-->
+        <!--init-method   destroy-method 分别代表初始化bean 和销毁前的执行-->
+        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" init-method="init" destroy-method="destory"/>
+
+        <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl">
+                <!--ioc依赖注入-->
+                <property name="bookDao" ref="bookDao"></property>
+        </bean>
 </beans>
