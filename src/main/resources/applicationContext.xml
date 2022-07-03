@@ -43,5 +43,9 @@
 
 
         <!--bean的实列化-->
-        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" />
+        <!--方式一：构造方法实列化-->
+<!--        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" />-->
+
+        <!--方式二：使用静态工厂实列化bean    factory-method必须吧方法名写上不然不知道调用那个方法  -->
+        <bean id="orderDao" class="com.yuanh.factory.OrderDaoFactory" factory-method="getOrderDao" />
 </beans>
