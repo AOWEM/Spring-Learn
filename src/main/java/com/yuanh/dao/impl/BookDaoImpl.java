@@ -40,12 +40,22 @@ public class BookDaoImpl implements BookDao {
 
     /**
      * 依赖注入的4中方式
-     * 构造方法
+     * 简单方法
      */
     private  int connetionNum;
     private String databaseName;
 
+    /**
+     * 简单方法 构造方法
+     * @param connetionNum
+     * @param databaseName
+     */
+    public BookDaoImpl(int connetionNum, String databaseName) {
+        this.connetionNum = connetionNum;
+        this.databaseName = databaseName;
+    }
+
     public void save() {
-        System.out.println("book dao save ...");
+        System.out.println("book dao save ..."+databaseName +","+connetionNum);
     }
 }
