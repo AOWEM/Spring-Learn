@@ -52,13 +52,13 @@ public class BookServiceImpl implements BookService/* , InitializingBean, Dispos
      * 依赖注入的4中方式
      * 构造方法
      */
-    private BookDao bookDao;
+   /* private BookDao bookDao;
     private UserDao userDao;
 
     //构造方法注入   用的形参的名字 bookDao  (BookDao bookDao)
-    /*public BookServiceImpl(BookDao bookDao) {
+    *//*public BookServiceImpl(BookDao bookDao) {
         this.bookDao = bookDao;
-    }*/
+    }*//*
     //构造方法注入   用的形参的名字 (BookDao bookDao, UserDao userDao)
     public BookServiceImpl(BookDao bookDao, UserDao userDao) {
         this.bookDao = bookDao;
@@ -69,7 +69,22 @@ public class BookServiceImpl implements BookService/* , InitializingBean, Dispos
         System.out.println("book service save ...");
         bookDao.save();
         userDao.save();
+    }*/
+
+
+    /**
+     * 依赖注入的自动装配
+     */
+    private BookDao bookDao;
+
+    public void setBookDao(BookDao bookDao) {
+        this.bookDao = bookDao;
     }
 
-
+    public void save() {
+        System.out.println("book service save ...");
+        bookDao.save();
+    }
 }
+
+
