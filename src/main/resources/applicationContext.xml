@@ -118,8 +118,8 @@
 
 
         <!--解决参数类型重复问题，使用位置解决参数匹配-->
-        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" >
-                <!--index 直接告诉他第几个参数-->
+        <!--<bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" >
+                &lt;!&ndash;index 直接告诉他第几个参数&ndash;&gt;
                 <constructor-arg index="0"  value="100" />
                 <constructor-arg index="1"  value="mysql" />
         </bean>
@@ -127,5 +127,14 @@
         <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl">
                 <constructor-arg name="bookDao" ref="bookDao" />
                 <constructor-arg name="userDao" ref="userDao" />
-        </bean>
+        </bean>-->
+
+
+        <!--依赖自动装配-->
+        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl"></bean>
+        <!--autowire="byType" 按类型自动装配-->
+        <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl" autowire="byType" />
+                <!--自己装配-->
+                <!--<property name="bookDao" ref="bookDao"></property>-->
+        <!--</bean>-->
 </beans>
