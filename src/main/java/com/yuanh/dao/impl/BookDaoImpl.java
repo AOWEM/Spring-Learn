@@ -13,20 +13,20 @@ public class BookDaoImpl implements BookDao {
     }*/
 
     //setter依赖注入 简单类型
-    private  int connetionNum;
-    private String databaseName;
+    /*private  int connetionNum;
+    private String databaseName;*/
     //入口方法
-    public void setConnetionNum(int connetionNum) {
+    /*public void setConnetionNum(int connetionNum) {
         this.connetionNum = connetionNum;
     }
     //入口方法
     public void setDatabaseName(String databaseName) {
         this.databaseName = databaseName;
-    }
+    }*/
 
-    public void save() {
+   /* public void save() {
         System.out.println("book dao save ..."+databaseName +" ,"+ connetionNum);
-    }
+    }*/
 
     //表示bean初始化 对应的操作
    /* public void init(){
@@ -37,4 +37,15 @@ public class BookDaoImpl implements BookDao {
     public void destory(){
         System.out.println("destory.....");
     }*/
+
+    /**
+     * 依赖注入的4中方式
+     * 构造方法
+     */
+    private  int connetionNum;
+    private String databaseName;
+
+    public void save() {
+        System.out.println("book dao save ...");
+    }
 }

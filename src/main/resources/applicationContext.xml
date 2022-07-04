@@ -71,15 +71,27 @@
 
         <!--依赖注入-->
         <!--setter多重引用   引用类型对象-->
-        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" >
-                <!--依赖注入简单类型   -->
+        <!--<bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" >
+                &lt;!&ndash;依赖注入简单类型   &ndash;&gt;
                 <property name="databaseName" value="mysql" />
                 <property name="connetionNum" value="100" />
         </bean>
         <bean id="userDao" class="com.yuanh.dao.impl.UserDaoImpl" />
         <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl">
-                <!--ref是引用bean的-->
+                &lt;!&ndash;ref是引用bean的&ndash;&gt;
                 <property name="bookDao" ref="bookDao"></property>
                 <property name="userDao" ref="userDao"></property>
+        </bean>-->
+        <!--依赖注入的四种方式   构造方法-->
+        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" />
+        <bean id="userDao" class="com.yuanh.dao.impl.UserDaoImpl" />
+        <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl">
+                <!--ref是引用bean的-->
+                <!--这个属于set注入的方式-->
+                <!--<property name="bookDao" ref="bookDao"></property>-->
+                <!--构造器的植入方式 name="bookDao"他用的是形参的名字-->
+                <constructor-arg name="bookDao" ref="bookDao" />
+                <constructor-arg name="userDao" ref="userDao" />
+
         </bean>
 </beans>
