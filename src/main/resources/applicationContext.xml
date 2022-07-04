@@ -82,16 +82,50 @@
                 <property name="bookDao" ref="bookDao"></property>
                 <property name="userDao" ref="userDao"></property>
         </bean>-->
-        <!--依赖注入的四种方式   构造方法-->
-        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" />
+
+        <!--这个是依赖注入的四种方式  构造方法  的标准写法 但是耦合度太高-->
+        <!--依赖注入的四种方式   构造方法
+        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" >
+                &lt;!&ndash;构造方法的 简单方法依赖注入&ndash;&gt;
+                <constructor-arg name="databaseName" value="mysql" />
+                <constructor-arg name="connetionNum" value="10" />
+        </bean>
         <bean id="userDao" class="com.yuanh.dao.impl.UserDaoImpl" />
         <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl">
-                <!--ref是引用bean的-->
-                <!--这个属于set注入的方式-->
-                <!--<property name="bookDao" ref="bookDao"></property>-->
-                <!--构造器的植入方式 name="bookDao"他用的是形参的名字-->
+                &lt;!&ndash;ref是引用bean的&ndash;&gt;
+                &lt;!&ndash;这个属于set注入的方式&ndash;&gt;
+                &lt;!&ndash;<property name="bookDao" ref="bookDao"></property>&ndash;&gt;
+                &lt;!&ndash;构造器的植入方式 name="bookDao"他用的是形参的名字&ndash;&gt;
                 <constructor-arg name="bookDao" ref="bookDao" />
                 <constructor-arg name="userDao" ref="userDao" />
+        </bean>-->
 
+
+        <!--
+                依赖注入的四种方式   构造方法
+                解决形参名称的问题，与形参名不耦合了
+        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" >
+                &lt;!&ndash;构造方法的 简单方法依赖注入&ndash;&gt;
+                &lt;!&ndash;type看是解决耦合 数据类型一多不知道对应谁&ndash;&gt;
+                <constructor-arg type="int" value="10" />
+                <constructor-arg type="java.lang.String"  value="mysql" />
+        </bean>
+        <bean id="userDao" class="com.yuanh.dao.impl.UserDaoImpl" />
+        <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl">
+                <constructor-arg name="bookDao" ref="bookDao" />
+                <constructor-arg name="userDao" ref="userDao" />
+        </bean>-->
+
+
+        <!--解决参数类型重复问题，使用位置解决参数匹配-->
+        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" >
+                <!--index 直接告诉他第几个参数-->
+                <constructor-arg index="0"  value="100" />
+                <constructor-arg index="1"  value="mysql" />
+        </bean>
+        <bean id="userDao" class="com.yuanh.dao.impl.UserDaoImpl" />
+        <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl">
+                <constructor-arg name="bookDao" ref="bookDao" />
+                <constructor-arg name="userDao" ref="userDao" />
         </bean>
 </beans>
