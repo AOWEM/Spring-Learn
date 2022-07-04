@@ -132,12 +132,61 @@
 
         <!--依赖自动装配-->
         <!--<bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" />-->
-        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" />
+<!--        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" />-->
         <!--autowire="byType" 按类型自动装配-->
-        <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl" autowire="byType" />
+<!--        <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl" autowire="byType" />-->
         <!--autowire="byName" 按名称自动装配-->
         <!--<bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl" autowire="byName" />-->
                 <!--自己装配-->
                 <!--<property name="bookDao" ref="bookDao"></property>-->
         <!--</bean>-->
+
+
+        <!--集合注入-->
+        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" >
+                <!--userDao set方法中的array-->
+                <property name="array">
+                        <array>
+                                <value>100</value>
+                                <value>200</value>
+                                <value>300</value>
+                                <!--引入bean的方式-->
+                                <!--<ref xml:id="beanId"></ref>-->
+                        </array>
+                </property>
+                <!--userDao set方法中的list-->
+                <property name="list">
+                        <list>
+                                <value>yuan</value>
+                                <value>h</value>
+                                <value>nb</value>
+                        </list>
+                </property>
+                <!--userDao set方法中的set-->
+                <property name="set">
+                        <set>
+                                <value>yuan</value>
+                                <value>h</value>
+                                <value>nb</value>
+                                <value>nb</value>
+                        </set>
+                </property>
+                <!--userDao set方法中的map-->
+                <property name="map">
+                        <map>
+                                <entry key="country" value="china" />
+                                <entry key="province" value="henan" />
+                                <entry key="city" value="kaifeng" />
+                        </map>
+                </property>
+
+                <!--userDao set方法中的properties-->
+                <property name="properties">
+                        <props>
+                                <prop key="country">china</prop>
+                                <prop key="province">henan</prop>
+                                <prop key="city">kaifeng</prop>
+                        </props>
+                </property>
+        </bean>
 </beans>
