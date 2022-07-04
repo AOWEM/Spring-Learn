@@ -61,10 +61,20 @@
 
         <!--bean的生命周期-->
         <!--init-method   destroy-method 分别代表初始化bean 和销毁前的执行-->
-        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" init-method="init" destroy-method="destory"/>
+        <!--<bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" init-method="init" destroy-method="destory"/>
 
         <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl">
-                <!--ioc依赖注入-->
+                &lt;!&ndash;ioc依赖注入&ndash;&gt;
                 <property name="bookDao" ref="bookDao"></property>
+        </bean>-->
+
+
+        <!--依赖注入-->
+        <!--setter多重引用   引用类型对象-->
+        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" />
+        <bean id="userDao" class="com.yuanh.dao.impl.UserDaoImpl" />
+        <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl">
+                <property name="bookDao" ref="bookDao"></property>
+                <property name="userDao" ref="userDao"></property>
         </bean>
 </beans>
