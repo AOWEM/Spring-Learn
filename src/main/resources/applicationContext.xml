@@ -71,9 +71,14 @@
 
         <!--依赖注入-->
         <!--setter多重引用   引用类型对象-->
-        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" />
+        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" >
+                <!--依赖注入简单类型   -->
+                <property name="databaseName" value="mysql" />
+                <property name="connetionNum" value="100" />
+        </bean>
         <bean id="userDao" class="com.yuanh.dao.impl.UserDaoImpl" />
         <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl">
+                <!--ref是引用bean的-->
                 <property name="bookDao" ref="bookDao"></property>
                 <property name="userDao" ref="userDao"></property>
         </bean>
