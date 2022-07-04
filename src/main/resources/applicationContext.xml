@@ -131,11 +131,12 @@
 
 
         <!--依赖自动装配-->
-        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl"></bean>
+        <!--<bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" />-->
+        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" />
         <!--autowire="byType" 按类型自动装配-->
-        <!--<bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl" autowire="byType" />-->
+        <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl" autowire="byType" />
         <!--autowire="byName" 按名称自动装配-->
-        <bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl" autowire="byName" />
+        <!--<bean id="bookService" class="com.yuanh.service.impl.BookServiceImpl" autowire="byName" />-->
                 <!--自己装配-->
                 <!--<property name="bookDao" ref="bookDao"></property>-->
         <!--</bean>-->
