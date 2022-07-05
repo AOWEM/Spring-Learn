@@ -6,6 +6,9 @@ import com.yuanh.service.BookService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.sql.DataSource;
+
+
 /**
  * 管理第三方资源管理器
  */
@@ -21,9 +24,11 @@ public class App {
         //5.获取service的bean
         /*BookService bookService = (BookService) ctx.getBean("bookService");
         bookService.save();*/
+        /*
+        * javax.sql.DataSource 这个包
+        * */
+        DataSource dataSource = (DataSource) ctx.getBean("dataSource");
 
-        DruidDataSource dataSource = (DruidDataSource) ctx.getBean("dataSource");
-        /*没有连接数据库也没法执行sql 打印下看看*/
         System.out.println(dataSource);
     }
 }
