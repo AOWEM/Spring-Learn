@@ -143,18 +143,18 @@
 
 
         <!--集合注入-->
-        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" >
-                <!--userDao set方法中的array-->
+       <!-- <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl" >
+                &lt;!&ndash;userDao set方法中的array&ndash;&gt;
                 <property name="array">
                         <array>
                                 <value>100</value>
                                 <value>200</value>
                                 <value>300</value>
-                                <!--引入bean的方式-->
-                                <!--<ref xml:id="beanId"></ref>-->
+                                &lt;!&ndash;引入bean的方式&ndash;&gt;
+                                &lt;!&ndash;<ref xml:id="beanId"></ref>&ndash;&gt;
                         </array>
                 </property>
-                <!--userDao set方法中的list-->
+                &lt;!&ndash;userDao set方法中的list&ndash;&gt;
                 <property name="list">
                         <list>
                                 <value>yuan</value>
@@ -162,7 +162,7 @@
                                 <value>nb</value>
                         </list>
                 </property>
-                <!--userDao set方法中的set-->
+                &lt;!&ndash;userDao set方法中的set&ndash;&gt;
                 <property name="set">
                         <set>
                                 <value>yuan</value>
@@ -171,7 +171,7 @@
                                 <value>nb</value>
                         </set>
                 </property>
-                <!--userDao set方法中的map-->
+                &lt;!&ndash;userDao set方法中的map&ndash;&gt;
                 <property name="map">
                         <map>
                                 <entry key="country" value="china" />
@@ -180,7 +180,7 @@
                         </map>
                 </property>
 
-                <!--userDao set方法中的properties-->
+                &lt;!&ndash;userDao set方法中的properties&ndash;&gt;
                 <property name="properties">
                         <props>
                                 <prop key="country">china</prop>
@@ -188,5 +188,15 @@
                                 <prop key="city">kaifeng</prop>
                         </props>
                 </property>
+        </bean>-->
+
+
+        <!--阿里的 德鲁伊第三方资源配置管理  管理DataSource对象-->
+        <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+                <!--链接数据库-->
+                <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql//localhost:3306/spring_db" />
+                <property name="username" value="root" />
+                <property name="password" value="123456" />
         </bean>
 </beans>
