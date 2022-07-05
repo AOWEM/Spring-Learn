@@ -5,6 +5,7 @@ import com.yuanh.dao.BookDao;
 import com.yuanh.service.BookService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import javax.sql.DataSource;
 
@@ -15,7 +16,7 @@ import javax.sql.DataSource;
 public class App {
     public static void main(String[] args) {
         //3.获取Ioc容易
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         //4.获取bean 你xml id是啥名你就那啥名字  dao层的
        /* BookDao bookDao = (BookDao) ctx.getBean("bookDao");
         //调用方法
@@ -27,8 +28,18 @@ public class App {
         /*
         * javax.sql.DataSource 这个包
         * */
-        DataSource dataSource = (DataSource) ctx.getBean("dataSource");
+       /* DataSource dataSource = (DataSource) ctx.getBean("dataSource");
 
-        System.out.println(dataSource);
+        System.out.println(dataSource);*/
+
+        //1.加载类路径下的配置文件
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        //2.从文件系统下加载配置文件 绝对路径加载
+//        ApplicationContext ctx = new FileSystemXmlApplicationContext("D:\\Java project\\JavaWebProjects\\Spring\\spring-demo\\src\\main\\resources\\applicationContext.xml");
+        //1.第一种获取bean的方法
+//        BookDao bookDao = (BookDao) ctx.getBean("bookDao");
+        //2.第二 种获取bean的方法
+        BookDao bookDao = ctx.getBean("bookDao", BookDao.class);
+        bookDao.save();
     }
 }

@@ -120,12 +120,18 @@ public class BookDaoImpl implements BookDao {
         System.out.println("遍历Properties" + properties);
     }*/
 
-    private String name;
+    /*private String name;
 
     public void setName(String name) {
         this.name = name;
     }
     public void save(){
         System.out.println("book dao save ..." +name);
+    }*/
+
+
+    /*容器*/
+    public void save(){
+        System.out.println("book dao save ..." );
     }
 }

@@ -227,9 +227,9 @@
         <!--必须写成这种格式 因为这是标准格式，只能读取当前工程的配置程序-->
 <!--        <context:property-placeholder location="classpath:*.properties" system-properties-mode="NEVER"/>-->
         <!--从类路径或jar包中搜索并加载properties文件-->
-        <context:property-placeholder location="classpath*:*.properties" system-properties-mode="NEVER"/>
+<!--        <context:property-placeholder location="classpath*:*.properties" system-properties-mode="NEVER"/>-->
         <!--3.使用占位符${}读取properties文件中的属性-->
-        <bean   class="com.alibaba.druid.pool.DruidDataSource">
+        <!--<bean   class="com.alibaba.druid.pool.DruidDataSource">
                 <property name="driverClassName" value="${jdbc.driver}" />
                 <property name="url" value="${jdbc.url}" />
                 <property name="username" value="${jdbc.username}" />
@@ -237,5 +237,10 @@
         </bean>
         <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl">
                 <property name="name" value="${username}" />
+        </bean>-->
+
+
+        <bean id="bookDao" class="com.yuanh.dao.impl.BookDaoImpl">
+
         </bean>
 </beans>
