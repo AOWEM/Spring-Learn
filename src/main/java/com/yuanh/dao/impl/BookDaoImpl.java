@@ -1,10 +1,13 @@
 package com.yuanh.dao.impl;
 
 import com.yuanh.dao.BookDao;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.*;
 
 /**
@@ -13,6 +16,8 @@ import java.util.*;
 //@Component("bookDao")
 //@Controller //表现层
 @Repository("bookDao") //数据层的
+//@Scope("prototype") //改为非单列
+@Scope("singleton") //改为单列
 public class BookDaoImpl implements BookDao {
     //构造方法 spring创建bean的时候是，调构造的无参的
     //实列化bean构造方法（常用）
@@ -139,5 +144,24 @@ public class BookDaoImpl implements BookDao {
     /*容器*/
     public void save(){
         System.out.println("book dao save ..." );
+    }
+
+    /**
+     * 生命周期注解
+     * 构造方法后运行
+     * @PostConstruct
+     */
+    @PostConstruct
+    public void init(){
+        System.out.println("init  ..." );
+    }
+    /**
+     * 生命周期注解
+     * 彻底销毁后运行的方法
+     * @PreDestroy
+     */
+    @PreDestroy
+    public void destroy(){
+        System.out.println("destroy ..." );
     }
 }
