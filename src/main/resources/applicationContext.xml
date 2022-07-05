@@ -246,7 +246,7 @@
 
 
         <!--注解配置bean-->
-        <context:component-scan base-package="com.yuanh" />
+<!--        <context:component-scan base-package="com.yuanh" />-->
 
 
 </beans>
