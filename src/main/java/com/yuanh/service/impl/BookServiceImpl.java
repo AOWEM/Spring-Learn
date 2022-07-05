@@ -5,13 +5,16 @@ import com.yuanh.dao.UserDao;
 import com.yuanh.service.BookService;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 //spring给你提供的bean生命周期 初始话和销毁方法 InitializingBean DisposableBean
 
 /**
- * 依赖注入的四种方式setter注入
- * 1.引用类型对象
+ * 注解bean
  */
+//@Component
+@Service //业务成的bean注解
 public class BookServiceImpl implements BookService/* , InitializingBean, DisposableBean*/ {
     //5.删除 业务层中使用的new的方式创建dao对象
     /**
