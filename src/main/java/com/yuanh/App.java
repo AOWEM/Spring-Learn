@@ -39,7 +39,16 @@ public class App {
         //1.第一种获取bean的方法
 //        BookDao bookDao = (BookDao) ctx.getBean("bookDao");
         //2.第二 种获取bean的方法
-        BookDao bookDao = ctx.getBean("bookDao", BookDao.class);
-        bookDao.save();
+        /*BookDao bookDao = ctx.getBean("bookDao", BookDao.class);
+        bookDao.save();*/
+
+        /**
+         * 注解开发
+         */
+        BookDao bookDao = (BookDao) ctx.getBean("bookDao");
+        System.out.println(bookDao);
+
+        BookService bookService = (BookService) ctx.getBean(BookService.class);
+        System.out.println(bookService);
     }
 }

@@ -1,12 +1,18 @@
 package com.yuanh.dao.impl;
 
 import com.yuanh.dao.BookDao;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
 /**
- * 2.在次基础上参与三种bean的实列化
+ * 注解配置bean
  */
+//@Component("bookDao")
+//@Controller //表现层
+@Repository("bookDao") //数据层的
 public class BookDaoImpl implements BookDao {
     //构造方法 spring创建bean的时候是，调构造的无参的
     //实列化bean构造方法（常用）
