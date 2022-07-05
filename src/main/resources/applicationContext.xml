@@ -192,11 +192,19 @@
 
 
         <!--阿里的 德鲁伊第三方资源配置管理  管理DataSource对象-->
-        <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <bean  class="com.alibaba.druid.pool.DruidDataSource">
                 <!--链接数据库-->
                 <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
                 <property name="url" value="jdbc:mysql//localhost:3306/spring_db" />
                 <property name="username" value="root" />
+                <property name="password" value="123456" />
+        </bean>
+        <!--c3p0的第三方资源配置管理 管理DataSource对象 -->
+        <bean id="dataSource"  class="com.mchange.v2.c3p0.ComboPooledDataSource">
+                <!--链接数据库-->
+                <property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
+                <property name="jdbcUrl" value="jdbc:mysql//localhost:3306/spring_db" />
+                <property name="user" value="root" />
                 <property name="password" value="123456" />
         </bean>
 </beans>
