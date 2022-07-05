@@ -70,7 +70,7 @@ public class BookDaoImpl implements BookDao {
     /**
      * 集合注入
      */
-    private int[] array;
+   /* private int[] array;
 
     private List<String> list;
 
@@ -118,9 +118,14 @@ public class BookDaoImpl implements BookDao {
         System.out.println("遍历Map" + map);
 
         System.out.println("遍历Properties" + properties);
+    }*/
+
+    private String name;
+
+    public void setName(String name) {
+        this.name = name;
     }
-
-
-
-
+    public void save(){
+        System.out.println("book dao save ..." +name);
+    }
 }
