@@ -10,6 +10,6 @@ import org.springframework.context.annotation.Configuration;
  * @ComponentScan 扫描
  */
 @Configuration
-@ComponentScan("com.yuanh")
+@ComponentScan({"com.yuanh.service","com.yuanh.dao"})
 public class SpringConfig {
 }
