@@ -18,6 +18,7 @@ import javax.sql.DataSource;
 @PropertySource("jdbc.properties")*/
 //@ComponentScan("com.yuanh.config")
 @ComponentScan("com.yuanh.dao")
+@PropertySource("jdbc.properties")
 @Import(JdbcConfig.class)
 public class SpringConfig {
 
