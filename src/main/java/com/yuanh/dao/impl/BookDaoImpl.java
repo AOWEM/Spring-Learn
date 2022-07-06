@@ -151,17 +151,17 @@ public class BookDaoImpl implements BookDao {
      * 构造方法后运行
      * @PostConstruct
      */
-    @PostConstruct
+    /*@PostConstruct
     public void init(){
         System.out.println("init  ..." );
-    }
+    }*/
     /**
      * 生命周期注解
      * 彻底销毁后运行的方法
      * @PreDestroy
      */
-    @PreDestroy
+    /*@PreDestroy
     public void destroy(){
         System.out.println("destroy ..." );
-    }
+    }*/
 }

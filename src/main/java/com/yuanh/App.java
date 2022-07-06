@@ -56,11 +56,18 @@ public class App {
         /**
          * bean 管理
          */
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
+        /*AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         BookDao bookDao1 = ctx.getBean(BookDao.class);
         BookDao bookDao2 = ctx.getBean(BookDao.class);
         System.out.println(bookDao1);
         System.out.println(bookDao2);
-        ctx.close();
+        ctx.close();*/
+
+        /**
+         * 注解开发依赖注入
+         */
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
+        BookService bookService = ctx.getBean(BookService.class);
+        bookService.save();
     }
 }
