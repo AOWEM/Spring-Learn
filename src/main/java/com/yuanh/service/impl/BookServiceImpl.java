@@ -5,6 +5,8 @@ import com.yuanh.dao.UserDao;
 import com.yuanh.service.BookService;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -77,12 +79,15 @@ public class BookServiceImpl implements BookService/* , InitializingBean, Dispos
 
     /**
      * 依赖注入的自动装配
+     * @Autowired 自动装配 按类型
+     * Autowired 属于暴力反射 可以不写set方法
+     * Qualifier 注解开启指定bean装配
      */
+    @Autowired
+    @Qualifier("bookDao2")
     private BookDao bookDao;
 
-    public void setBookDao(BookDao bookDao) {
-        this.bookDao = bookDao;
-    }
+
 
     public void save() {
         System.out.println("book service save ...");
