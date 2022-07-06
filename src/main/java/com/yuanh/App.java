@@ -66,8 +66,16 @@ public class App {
         /**
          * 注解开发依赖注入
          */
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
+        /*AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         BookService bookService = ctx.getBean(BookService.class);
-        bookService.save();
+        bookService.save();*/
+
+        /**
+         * 管理第三方bean
+         * 注入管理
+         */
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
+        DataSource dataSource = ctx.getBean(DataSource.class);
+        System.out.println(dataSource);
     }
 }
