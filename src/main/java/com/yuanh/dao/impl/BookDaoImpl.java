@@ -169,9 +169,10 @@ public class BookDaoImpl implements BookDao {
     /**
      * 依赖注入的自动装配
      * 简单类型
-     * @Value("yuanh") 简单类型的赋值
+     * @Value("yuanh") 简单类型的赋值  加载了外部配置文件可以动态配置数据
      */
-    @Value("yuanh")
+//    @Value("yuanh")
+    @Value("${name}")
     private String name;
     public void save(){
         System.out.println("book dao save ..." +name);
