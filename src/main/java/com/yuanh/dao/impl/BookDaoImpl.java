@@ -1,6 +1,7 @@
 package com.yuanh.dao.impl;
 
 import com.yuanh.dao.BookDao;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -142,9 +143,9 @@ public class BookDaoImpl implements BookDao {
 
 
     /*容器*/
-    public void save(){
+    /*public void save(){
         System.out.println("book dao save ..." );
-    }
+    }*/
 
     /**
      * 生命周期注解
@@ -164,4 +165,15 @@ public class BookDaoImpl implements BookDao {
     public void destroy(){
         System.out.println("destroy ..." );
     }*/
+
+    /**
+     * 依赖注入的自动装配
+     * 简单类型
+     * @Value("yuanh") 简单类型的赋值
+     */
+    @Value("yuanh")
+    private String name;
+    public void save(){
+        System.out.println("book dao save ..." +name);
+    }
 }

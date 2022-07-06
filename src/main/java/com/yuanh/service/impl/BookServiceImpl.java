@@ -84,7 +84,7 @@ public class BookServiceImpl implements BookService/* , InitializingBean, Dispos
      * Qualifier 注解开启指定bean装配
      */
     @Autowired
-    @Qualifier("bookDao2")
+    @Qualifier("bookDao")
     private BookDao bookDao;
 
 
